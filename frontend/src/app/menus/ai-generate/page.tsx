@@ -251,7 +251,7 @@ export default function AIGenerateMenuPage() {
                     onClick={() => toggleMuscleGroup(opt.value)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       targetMuscleGroups.includes(opt.value)
-                        ? 'bg-volt text-white'
+                        ? 'bg-volt text-ink'
                         : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/20'
                     }`}
                   >

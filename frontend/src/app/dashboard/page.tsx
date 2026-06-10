@@ -93,14 +93,14 @@ export default function DashboardPage() {
             href="/workout/new"
             className="flex items-center gap-4 p-6 bg-volt rounded-2xl hover:bg-volt-dim transition-all group"
           >
-            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-              <Plus className="h-6 w-6 text-white" />
+            <div className="w-12 h-12 bg-ink/10 rounded-xl flex items-center justify-center">
+              <Plus className="h-6 w-6 text-ink" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-white">トレーニングを記録</h3>
-              <p className="text-white/70 text-sm">今日のワークアウトを記録</p>
+              <h3 className="text-lg font-semibold text-ink">トレーニングを記録</h3>
+              <p className="text-ink/70 text-sm">今日のワークアウトを記録</p>
             </div>
-            <ChevronRight className="h-5 w-5 text-white/50 ml-auto group-hover:translate-x-1 transition-transform" />
+            <ChevronRight className="h-5 w-5 text-ink/50 ml-auto group-hover:translate-x-1 transition-transform" />
           </Link>
 
           <Link
