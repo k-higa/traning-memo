@@ -203,12 +203,12 @@ function NewWorkoutContent() {
         </Link>
       )}
 
-      <h1 className="text-2xl font-bold text-white mb-2">トレーニング記録</h1>
+      <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-2">トレーニング記録</h1>
 
       {/* メニューモードの場合はメニュー名を表示 */}
       {selectedMenu && (
-        <div className="mb-6 p-4 bg-purple-500/20 rounded-xl border border-purple-500/30">
-          <p className="text-purple-300 text-sm">選択中のメニュー</p>
+        <div className="mb-6 p-4 bg-volt/10 rounded-xl border border-volt/40">
+          <p className="text-volt text-sm">選択中のメニュー</p>
           <p className="text-white font-semibold text-lg">{selectedMenu.name}</p>
           {selectedMenu.description && (
             <p className="text-gray-400 text-sm mt-1">{selectedMenu.description}</p>
@@ -228,7 +228,7 @@ function NewWorkoutContent() {
               setError('')
               setExistingWorkoutId(null)
             }}
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-volt"
           />
         </div>
 
@@ -241,10 +241,10 @@ function NewWorkoutContent() {
             <select
               value={selectedMuscleGroup}
               onChange={(e) => setSelectedMuscleGroup(e.target.value)}
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
             >
               {muscleGroups.map((group) => (
-                <option key={group.value} value={group.value} className="bg-slate-800">
+                <option key={group.value} value={group.value} className="bg-ink-2">
                   {group.label}
                 </option>
               ))}
@@ -260,7 +260,7 @@ function NewWorkoutContent() {
             <button
               type="button"
               onClick={addSet}
-              className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
             >
               <Plus className="h-4 w-4" />
               セットを追加
@@ -280,7 +280,7 @@ function NewWorkoutContent() {
                   className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                 >
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-medium text-purple-400">
+                    <span className="text-sm font-medium text-volt">
                       セット {index + 1}
                     </span>
                     <button
@@ -300,9 +300,9 @@ function NewWorkoutContent() {
                         onChange={(e) =>
                           updateSet(set.id, 'exerciseId', parseInt(e.target.value, 10))
                         }
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
                       >
-                        <option value={0} className="bg-slate-800">
+                        <option value={0} className="bg-ink-2">
                           選択してください
                         </option>
                         {/* 選択中の種目がフィルタリング後のリストにない場合、それを追加 */}
@@ -312,7 +312,7 @@ function NewWorkoutContent() {
                             <option
                               key={selectedExercise.id}
                               value={selectedExercise.id}
-                              className="bg-slate-800"
+                              className="bg-ink-2"
                             >
                               {selectedExercise.name}（{muscleGroupLabels[selectedExercise.muscle_group] || 'その他'}）
                             </option>
@@ -322,7 +322,7 @@ function NewWorkoutContent() {
                           <option
                             key={exercise.id}
                             value={exercise.id}
-                            className="bg-slate-800"
+                            className="bg-ink-2"
                           >
                             {exercise.name}
                           </option>
@@ -338,7 +338,7 @@ function NewWorkoutContent() {
                         value={set.weight}
                         onChange={(e) => updateSet(set.id, 'weight', e.target.value)}
                         placeholder="0"
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                       />
                     </div>
                     <div>
@@ -349,7 +349,7 @@ function NewWorkoutContent() {
                         value={set.reps}
                         onChange={(e) => updateSet(set.id, 'reps', e.target.value)}
                         placeholder="0"
-                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                       />
                     </div>
                   </div>
@@ -369,7 +369,7 @@ function NewWorkoutContent() {
             onChange={(e) => setMemo(e.target.value)}
             rows={3}
             placeholder="今日のトレーニングについてメモを残せます"
-            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+            className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt resize-none"
           />
         </div>
 
@@ -381,7 +381,7 @@ function NewWorkoutContent() {
               <button
                 type="button"
                 onClick={() => router.push(`/workout/${existingWorkoutId}`)}
-                className="mt-3 px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition-colors"
+                className="mt-3 px-4 py-2 bg-volt text-ink text-sm rounded-lg hover:bg-volt-dim transition-colors"
               >
                 既存の記録を編集する
               </button>
@@ -393,7 +393,7 @@ function NewWorkoutContent() {
         <button
           type="submit"
           disabled={saving || sets.length === 0}
-          className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-volt text-ink font-semibold rounded-xl hover:bg-volt-dim disabled:opacity-50 disabled:cursor-not-allowed transition-all"
         >
           <Save className="h-5 w-5" />
           {saving ? '保存中...' : 'トレーニングを保存'}
@@ -405,7 +405,7 @@ function NewWorkoutContent() {
 
 export default function NewWorkoutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
       <Suspense fallback={
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">

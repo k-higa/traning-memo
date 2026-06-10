@@ -150,7 +150,7 @@ export default function ExercisesPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -160,15 +160,15 @@ export default function ExercisesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-white">種目管理</h1>
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white">種目管理</h1>
           <button
             onClick={() => handleOpenModal()}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
           >
             <Plus className="h-4 w-4" />
             カスタム種目を追加
@@ -181,13 +181,13 @@ export default function ExercisesPage() {
             <select
               value={selectedMuscleGroup}
               onChange={(e) => setSelectedMuscleGroup(e.target.value)}
-              className="appearance-none px-4 py-2 pr-10 bg-white/10 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="appearance-none px-4 py-2 pr-10 bg-white/10 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
             >
-              <option value="" className="bg-slate-800">
+              <option value="" className="bg-ink-2">
                 すべての部位
               </option>
               {muscleGroups.map((group) => (
-                <option key={group.value} value={group.value} className="bg-slate-800">
+                <option key={group.value} value={group.value} className="bg-ink-2">
                   {group.label}
                 </option>
               ))}
@@ -200,7 +200,7 @@ export default function ExercisesPage() {
         {filteredCustomExercises.length > 0 && (
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <span className="px-2 py-0.5 bg-purple-500/30 text-purple-300 text-xs rounded">
+              <span className="px-2 py-0.5 bg-volt/20 text-volt text-xs rounded">
                 カスタム
               </span>
               あなたの種目
@@ -212,8 +212,8 @@ export default function ExercisesPage() {
                   className="flex items-center justify-between p-4 hover:bg-white/5"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                      <Dumbbell className="h-5 w-5 text-purple-400" />
+                    <div className="w-10 h-10 bg-volt/10 rounded-lg flex items-center justify-center">
+                      <Dumbbell className="h-5 w-5 text-volt" />
                     </div>
                     <div>
                       <p className="text-white font-medium">{exercise.name}</p>
@@ -268,7 +268,7 @@ export default function ExercisesPage() {
       {/* モーダル */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-slate-800 rounded-2xl p-6 w-full max-w-md border border-white/20">
+          <div className="bg-ink-2 rounded-2xl p-6 w-full max-w-md border border-white/20">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-bold text-white">
                 {editingExercise ? '種目を編集' : 'カスタム種目を追加'}
@@ -289,7 +289,7 @@ export default function ExercisesPage() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="例: ダンベルプレス"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt"
                 />
               </div>
 
@@ -299,10 +299,10 @@ export default function ExercisesPage() {
                   <select
                     value={formData.muscle_group}
                     onChange={(e) => setFormData({ ...formData, muscle_group: e.target.value })}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
                   >
                     {muscleGroups.map((group) => (
-                      <option key={group.value} value={group.value} className="bg-slate-800">
+                      <option key={group.value} value={group.value} className="bg-ink-2">
                         {group.label}
                       </option>
                     ))}
@@ -328,7 +328,7 @@ export default function ExercisesPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-volt text-ink rounded-lg hover:bg-volt-dim disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
                   <Check className="h-4 w-4" />
                   {saving ? '保存中...' : '保存'}

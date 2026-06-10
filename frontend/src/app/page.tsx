@@ -1,27 +1,49 @@
 import Link from 'next/link'
-import { Dumbbell, TrendingUp, Calendar, Target } from 'lucide-react'
+import { Dumbbell, TrendingUp, Calendar, ArrowRight } from 'lucide-react'
 import { Footer } from '@/components/Footer'
+
+const marqueeWords = [
+  'Push',
+  'Pull',
+  'Legs',
+  'Progressive Overload',
+  'No Excuses',
+  'Track Every Rep',
+]
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* ヘッダー */}
-      <header className="container mx-auto px-4 py-6">
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-ink text-white grain">
+      {/* Atmospheric glows */}
+      <div className="pointer-events-none absolute -top-40 -right-32 h-[34rem] w-[34rem] rounded-full bg-volt/20 blur-[140px]" />
+      <div className="pointer-events-none absolute top-1/3 -left-40 h-[28rem] w-[28rem] rounded-full bg-volt/5 blur-[120px]" />
+
+      {/* Ghost numeral watermark */}
+      <span className="pointer-events-none absolute -bottom-24 -right-6 select-none font-display text-[42vw] leading-none text-white/[0.025]">
+        01
+      </span>
+
+      {/* ===== HEADER ===== */}
+      <header className="relative z-10 container mx-auto px-4 py-6">
         <nav className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Dumbbell className="h-8 w-8 text-purple-400" />
-            <span className="text-xl font-bold text-white">Training Memo</span>
+          <div className="flex items-center gap-2.5">
+            <span className="flex h-8 w-8 items-center justify-center bg-volt text-ink">
+              <Dumbbell className="h-5 w-5" />
+            </span>
+            <span className="font-display text-xl uppercase tracking-wide">
+              Training<span className="text-volt">Memo</span>
+            </span>
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <Link
               href="/login"
-              className="px-4 py-2 text-sm font-medium text-white hover:text-purple-300 transition-colors"
+              className="px-4 py-2 text-sm font-medium uppercase tracking-wider text-concrete transition-colors hover:text-white"
             >
               ログイン
             </Link>
             <Link
               href="/signup"
-              className="px-4 py-2 text-sm font-medium bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="bg-volt px-4 py-2 font-display text-sm uppercase tracking-wide text-ink transition-transform duration-200 hover:-translate-y-0.5"
             >
               新規登録
             </Link>
@@ -29,53 +51,102 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* ヒーローセクション */}
-      <main className="container mx-auto px-4 py-20">
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            トレーニングを
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              記録
-            </span>
-            して
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              成長
-            </span>
-            を実感しよう
-          </h1>
-          <p className="text-lg text-gray-300 mb-10">
-            日々のトレーニングを簡単に記録。
-            <br />
-            進捗をグラフで可視化し、目標達成をサポートします。
-          </p>
-          <Link
-            href="/signup"
-            className="inline-flex items-center gap-2 px-8 py-4 text-lg font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg shadow-purple-500/25"
+      {/* ===== HERO ===== */}
+      <main className="relative z-10 flex-1">
+        <section className="container mx-auto px-4 pt-16 pb-24 md:pt-24 md:pb-28">
+          <p
+            className="font-mono text-xs uppercase tracking-[0.35em] text-volt animate-rise"
+            style={{ animationDelay: '40ms' }}
           >
-            無料で始める
-            <TrendingUp className="h-5 w-5" />
-          </Link>
+            — Strength Log / No.01
+          </p>
+
+          <h1 className="mt-6 font-display uppercase leading-[0.86] tracking-tight">
+            <span
+              className="block text-[15vw] animate-rise sm:text-7xl md:text-8xl lg:text-9xl"
+              style={{ animationDelay: '120ms' }}
+            >
+              鍛えて、
+            </span>
+            <span
+              className="block text-[15vw] animate-rise sm:text-7xl md:text-8xl lg:text-9xl"
+              style={{ animationDelay: '200ms' }}
+            >
+              記録する<span className="text-volt">。</span>
+            </span>
+            <span
+              className="block text-stroke text-[15vw] animate-rise sm:text-7xl md:text-8xl lg:text-9xl"
+              style={{ animationDelay: '280ms' }}
+            >
+              TRACK IT ALL
+            </span>
+          </h1>
+
+          <div className="mt-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+            <p
+              className="max-w-md text-base leading-relaxed text-concrete animate-rise"
+              style={{ animationDelay: '360ms' }}
+            >
+              日々のトレーニングを記録し、重量の推移を可視化する。
+              積み上げた数字だけが、昨日の自分を超える証になる。
+            </p>
+
+            <div
+              className="flex flex-wrap gap-3 animate-rise"
+              style={{ animationDelay: '440ms' }}
+            >
+              <Link
+                href="/signup"
+                className="group inline-flex items-center gap-3 bg-volt px-7 py-4 font-display uppercase tracking-wide text-ink transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                無料で始める
+                <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+              </Link>
+              <Link
+                href="/login"
+                className="inline-flex items-center gap-3 border border-white/25 px-7 py-4 font-display uppercase tracking-wide text-white transition-colors duration-200 hover:border-volt hover:text-volt"
+              >
+                ログイン
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== MARQUEE ===== */}
+        <div className="relative overflow-hidden border-y border-white/10 bg-volt py-3">
+          <div className="flex w-max animate-marquee whitespace-nowrap">
+            {[0, 1].map((dup) => (
+              <span key={dup} className="flex shrink-0">
+                {marqueeWords.map((word) => (
+                  <span
+                    key={`${dup}-${word}`}
+                    className="mx-6 font-display text-lg uppercase tracking-widest text-ink"
+                  >
+                    {word} <span className="opacity-40">✦</span>
+                  </span>
+                ))}
+              </span>
+            ))}
+          </div>
         </div>
 
-        {/* 特徴セクション */}
-        <div className="mt-32 grid md:grid-cols-3 gap-8">
-          <FeatureCard
-            icon={<Dumbbell className="h-10 w-10" />}
-            title="簡単記録"
-            description="種目・重量・回数をサクッと入力。前回の記録をコピーしてさらに時短。"
-          />
-          <FeatureCard
-            icon={<TrendingUp className="h-10 w-10" />}
-            title="進捗の可視化"
-            description="グラフで成長を実感。自己ベスト更新時には通知でお知らせ。"
-          />
-          <FeatureCard
-            icon={<Calendar className="h-10 w-10" />}
-            title="カレンダー管理"
-            description="トレーニング履歴をカレンダーで確認。継続日数も一目でわかる。"
-          />
-        </div>
+        {/* ===== FEATURES ===== */}
+        <section className="container mx-auto px-4 py-20">
+          <div className="mb-10 flex items-end justify-between border-b border-white/10 pb-4">
+            <h2 className="font-display text-3xl uppercase tracking-wide md:text-4xl">
+              できること
+            </h2>
+            <span className="font-mono text-xs uppercase tracking-widest text-concrete">
+              3 / Features
+            </span>
+          </div>
+
+          <div className="grid gap-px overflow-hidden bg-white/10 sm:grid-cols-3">
+            {features.map((f, i) => (
+              <FeatureCard key={f.title} index={i} {...f} />
+            ))}
+          </div>
+        </section>
       </main>
 
       <Footer />
@@ -83,23 +154,53 @@ export default function Home() {
   )
 }
 
+const features = [
+  {
+    icon: Dumbbell,
+    title: '簡単記録',
+    description:
+      '種目・重量・回数をサクッと入力。前回の記録をコピーしてさらに時短。',
+  },
+  {
+    icon: TrendingUp,
+    title: '進捗の可視化',
+    description: 'グラフで成長を実感。自己ベスト更新時には通知でお知らせ。',
+  },
+  {
+    icon: Calendar,
+    title: 'カレンダー管理',
+    description:
+      'トレーニング履歴をカレンダーで確認。継続日数も一目でわかる。',
+  },
+]
+
 function FeatureCard({
-  icon,
+  icon: Icon,
   title,
   description,
+  index,
 }: {
-  icon: React.ReactNode
+  icon: React.ComponentType<{ className?: string }>
   title: string
   description: string
+  index: number
 }) {
   return (
-    <div className="p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-colors">
-      <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 text-white mb-4">
-        {icon}
+    <div
+      className="group relative flex min-h-[15rem] flex-col justify-between bg-ink p-7 transition-colors duration-300 animate-rise hover:bg-ink-2"
+      style={{ animationDelay: `${520 + index * 90}ms` }}
+    >
+      <div className="flex items-start justify-between">
+        <Icon className="h-10 w-10 text-volt" />
+        <span className="font-mono text-sm text-concrete">0{index + 1}</span>
       </div>
-      <h3 className="text-xl font-semibold text-white mb-2">{title}</h3>
-      <p className="text-gray-400">{description}</p>
+      <div>
+        <h3 className="font-display text-2xl uppercase tracking-wide transition-colors group-hover:text-volt">
+          {title}
+        </h3>
+        <p className="mt-2 text-sm leading-relaxed text-concrete">{description}</p>
+      </div>
+      <span className="absolute bottom-0 left-0 h-[3px] w-0 bg-volt transition-all duration-300 group-hover:w-full" />
     </div>
   )
 }
-

@@ -75,17 +75,17 @@ export default function HistoryPage() {
   }, {} as Record<string, Workout[]>)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-2xl">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-white">トレーニング履歴</h1>
+            <h1 className="text-3xl font-display uppercase tracking-wide text-white">トレーニング履歴</h1>
             <p className="text-gray-400 text-sm mt-1">全{total}件の記録</p>
           </div>
           <div className="flex items-center gap-2">
-            <Calendar className="h-5 w-5 text-purple-400" />
+            <Calendar className="h-5 w-5 text-volt" />
           </div>
         </div>
 
@@ -104,7 +104,7 @@ export default function HistoryPage() {
             </p>
             <Link
               href="/workout/new"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
             >
               トレーニングを記録する
             </Link>
@@ -121,7 +121,7 @@ export default function HistoryPage() {
                       <Link
                         key={workout.id}
                         href={`/workout/${workout.id}`}
-                        className="flex items-center justify-between p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-purple-500/50 transition-all group"
+                        className="flex items-center justify-between p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:border-volt/50 transition-all group"
                       >
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">

@@ -106,7 +106,7 @@ export default function StatsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -134,18 +134,18 @@ export default function StatsPage() {
   }, {} as Record<string, PersonalBest[]>)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-6xl">
-        <h1 className="text-2xl font-bold text-white mb-6">統計・分析</h1>
+        <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-6">統計・分析</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* 部位別トレーニング回数 */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                <Target className="h-5 w-5 text-purple-400" />
+              <div className="w-10 h-10 bg-volt/10 rounded-lg flex items-center justify-center">
+                <Target className="h-5 w-5 text-volt" />
               </div>
               <h2 className="text-lg font-semibold text-white">部位別トレーニング</h2>
             </div>
@@ -235,13 +235,13 @@ export default function StatsPage() {
                 <select
                   value={selectedExercise || ''}
                   onChange={(e) => handleExerciseSelect(e.target.value)}
-                  className="appearance-none px-4 py-2 pr-10 bg-white/10 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="appearance-none px-4 py-2 pr-10 bg-white/10 border border-white/20 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                 >
-                  <option value="" className="bg-slate-800">
+                  <option value="" className="bg-ink-2">
                     種目を選択
                   </option>
                   {exercises.map((exercise) => (
-                    <option key={exercise.id} value={exercise.id} className="bg-slate-800">
+                    <option key={exercise.id} value={exercise.id} className="bg-ink-2">
                       {exercise.name}
                     </option>
                   ))}

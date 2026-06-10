@@ -35,10 +35,32 @@ const config: Config = {
           900: '#701a75',
           950: '#4a044e',
         },
+        // Industrial gym palette
+        ink: '#0a0a0b',
+        'ink-2': '#141416',
+        'ink-3': '#1d1d20',
+        concrete: '#8a8a8f',
+        volt: '#d9ff00',
+        'volt-dim': '#a8c400',
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'sans-serif'],
         mono: ['var(--font-mono)', 'monospace'],
+        display: ['var(--font-display)', 'Impact', 'sans-serif'],
+      },
+      keyframes: {
+        rise: {
+          '0%': { opacity: '0', transform: 'translateY(28px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        rise: 'rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
+        marquee: 'marquee 22s linear infinite',
       },
     },
   },

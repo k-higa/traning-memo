@@ -35,19 +35,23 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-ink flex items-center justify-center px-4">
       <div className="w-full max-w-md">
         {/* ロゴ */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2">
-            <Dumbbell className="h-10 w-10 text-purple-400" />
-            <span className="text-2xl font-bold text-white">Training Memo</span>
+          <Link href="/" className="inline-flex items-center gap-2.5">
+            <span className="flex h-10 w-10 items-center justify-center bg-volt text-ink">
+              <Dumbbell className="h-6 w-6" />
+            </span>
+            <span className="font-display text-2xl uppercase tracking-wide text-white">
+              Training<span className="text-volt">Memo</span>
+            </span>
           </Link>
         </div>
 
         {/* ログインカード */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-          <h1 className="text-2xl font-bold text-white text-center mb-6">ログイン</h1>
+        <div className="bg-ink-2 rounded-2xl p-8 border border-white/10">
+          <h1 className="font-display text-3xl uppercase tracking-wide text-white text-center mb-6">ログイン</h1>
 
           {error && (
             <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg flex items-center gap-2 text-red-200">
@@ -69,7 +73,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-volt focus:border-transparent"
                   placeholder="your@email.com"
                 />
               </div>
@@ -87,7 +91,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-volt focus:border-transparent"
                   placeholder="••••••••"
                 />
               </div>
@@ -96,7 +100,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full py-3 px-4 bg-volt text-ink font-display uppercase tracking-wide rounded-lg hover:bg-volt-dim focus:outline-none focus:ring-2 focus:ring-volt focus:ring-offset-2 focus:ring-offset-ink disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {loading ? 'ログイン中...' : 'ログイン'}
             </button>
@@ -105,7 +109,7 @@ export default function LoginPage() {
           <div className="mt-6 text-center">
             <p className="text-gray-400">
               アカウントをお持ちでない方は{' '}
-              <Link href="/signup" className="text-purple-400 hover:text-purple-300 font-medium">
+              <Link href="/signup" className="text-volt hover:text-volt font-medium">
                 新規登録
               </Link>
             </p>

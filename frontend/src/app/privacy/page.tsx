@@ -4,18 +4,18 @@ import { Footer } from '@/components/Footer'
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col">
+    <div className="min-h-screen bg-ink flex flex-col">
       {/* ヘッダー */}
       <header className="container mx-auto px-4 py-6">
         <Link href="/" className="inline-flex items-center gap-2">
-          <Dumbbell className="h-7 w-7 text-purple-400" />
+          <Dumbbell className="h-7 w-7 text-volt" />
           <span className="text-lg font-bold text-white">Training Memo</span>
         </Link>
       </header>
 
       <main className="container mx-auto px-4 py-10 max-w-3xl flex-1">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-          <h1 className="text-2xl font-bold text-white mb-2">プライバシーポリシー</h1>
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-2">プライバシーポリシー</h1>
           <p className="text-gray-400 text-sm mb-8">最終更新日：2026年2月25日</p>
 
           <div className="space-y-8 text-gray-300 text-sm leading-relaxed">
@@ -24,8 +24,8 @@ export default function PrivacyPage() {
               <h2 className="text-base font-semibold text-white mb-3">1. 事業者情報</h2>
               <p>
                 Training Memo（以下「当サービス」）は、以下の者が運営します。<br />
-                運営者：<span className="text-purple-300">[運営者名]</span><br />
-                お問い合わせ：<span className="text-purple-300">[連絡先メールアドレス]</span>
+                運営者：<span className="text-volt">[運営者名]</span><br />
+                お問い合わせ：<span className="text-volt">[連絡先メールアドレス]</span>
               </p>
             </section>
 
@@ -75,13 +75,13 @@ export default function PrivacyPage() {
                 <li>法令に基づく場合（裁判所・行政機関からの開示要求など）</li>
               </ul>
 
-              <div className="mt-4 p-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
-                <p className="font-medium text-purple-300 mb-1">AIメニュー生成機能について</p>
+              <div className="mt-4 p-3 bg-volt/5 border border-volt/40 rounded-lg">
+                <p className="font-medium text-volt mb-1">AIメニュー生成機能について</p>
                 <p>
                   AIメニュー生成機能を利用した場合、入力されたトレーニング目標・条件などのデータが
                   OpenAI, Inc.（米国）のAPIに送信されます。
                   OpenAIのプライバシーポリシーは
-                  <a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline ml-1">
+                  <a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer" className="text-volt hover:underline ml-1">
                     こちら
                   </a>
                   をご確認ください。体重・体脂肪率などの個人的な身体情報は送信されません。
@@ -145,7 +145,7 @@ export default function PrivacyPage() {
               <h2 className="text-base font-semibold text-white mb-3">9. お問い合わせ</h2>
               <p>
                 個人情報の取り扱いに関するお問い合わせ・ご請求は、以下にご連絡ください。<br />
-                メールアドレス：<span className="text-purple-300">[連絡先メールアドレス]</span>
+                メールアドレス：<span className="text-volt">[連絡先メールアドレス]</span>
               </p>
             </section>
 

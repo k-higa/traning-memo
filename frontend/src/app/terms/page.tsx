@@ -4,18 +4,18 @@ import { Footer } from '@/components/Footer'
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col">
+    <div className="min-h-screen bg-ink flex flex-col">
       {/* ヘッダー */}
       <header className="container mx-auto px-4 py-6">
         <Link href="/" className="inline-flex items-center gap-2">
-          <Dumbbell className="h-7 w-7 text-purple-400" />
+          <Dumbbell className="h-7 w-7 text-volt" />
           <span className="text-lg font-bold text-white">Training Memo</span>
         </Link>
       </header>
 
       <main className="container mx-auto px-4 py-10 max-w-3xl flex-1">
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-          <h1 className="text-2xl font-bold text-white mb-2">利用規約</h1>
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-2">利用規約</h1>
           <p className="text-gray-400 text-sm mb-8">最終更新日：2026年2月25日</p>
 
           <div className="space-y-8 text-gray-300 text-sm leading-relaxed">
@@ -108,7 +108,7 @@ export default function TermsPage() {
               <h2 className="text-base font-semibold text-white mb-3">第10条（お問い合わせ）</h2>
               <p>
                 本規約に関するご質問・ご意見は、以下のお問い合わせ先までご連絡ください。<br />
-                メールアドレス：<span className="text-purple-300">[連絡先メールアドレス]</span>
+                メールアドレス：<span className="text-volt">[連絡先メールアドレス]</span>
               </p>
             </section>
 

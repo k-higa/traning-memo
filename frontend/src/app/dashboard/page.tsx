@@ -48,7 +48,7 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -77,13 +77,13 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8">
         {/* ウェルカムセクション */}
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-white mb-2">ダッシュボード</h1>
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-2">ダッシュボード</h1>
           <p className="text-gray-400">今日もトレーニングを頑張りましょう！</p>
         </div>
 
@@ -91,7 +91,7 @@ export default function DashboardPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <Link
             href="/workout/new"
-            className="flex items-center gap-4 p-6 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl hover:from-purple-700 hover:to-pink-700 transition-all group"
+            className="flex items-center gap-4 p-6 bg-volt rounded-2xl hover:bg-volt-dim transition-all group"
           >
             <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
               <Plus className="h-6 w-6 text-white" />
@@ -105,10 +105,10 @@ export default function DashboardPage() {
 
           <Link
             href="/history"
-            className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all group"
+            className="flex items-center gap-4 p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-volt/50 transition-all group"
           >
-            <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
-              <Calendar className="h-6 w-6 text-purple-400" />
+            <div className="w-12 h-12 bg-volt/10 rounded-xl flex items-center justify-center">
+              <Calendar className="h-6 w-6 text-volt" />
             </div>
             <div>
               <h3 className="text-lg font-semibold text-white">履歴を見る</h3>
@@ -136,12 +136,12 @@ export default function DashboardPage() {
           {todayWorkout ? (
             <Link
               href={`/workout/${todayWorkout.id}`}
-              className="block p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all"
+              className="block p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-volt/50 transition-all"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                    <Dumbbell className="h-5 w-5 text-purple-400" />
+                  <div className="w-10 h-10 bg-volt/10 rounded-lg flex items-center justify-center">
+                    <Dumbbell className="h-5 w-5 text-volt" />
                   </div>
                   <div>
                     <p className="text-white font-medium">{formatDate(todayWorkout.date)}</p>
@@ -156,7 +156,7 @@ export default function DashboardPage() {
                     group && (
                       <span
                         key={group}
-                        className="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs rounded-full"
+                        className="px-3 py-1 bg-volt/10 text-volt text-xs rounded-full"
                       >
                         {muscleGroupLabels[group] || group}
                       </span>
@@ -169,7 +169,7 @@ export default function DashboardPage() {
               <p className="text-gray-400 mb-4">まだ今日のトレーニングが記録されていません</p>
               <Link
                 href="/workout/new"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
               >
                 <Plus className="h-4 w-4" />
                 記録を始める
@@ -182,7 +182,7 @@ export default function DashboardPage() {
         <div>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-white">最近のトレーニング</h2>
-            <Link href="/history" className="text-purple-400 hover:text-purple-300 text-sm">
+            <Link href="/history" className="text-volt hover:text-volt text-sm">
               すべて見る
             </Link>
           </div>
@@ -192,7 +192,7 @@ export default function DashboardPage() {
                 <Link
                   key={workout.id}
                   href={`/workout/${workout.id}`}
-                  className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10 hover:border-purple-500/50 transition-all"
+                  className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/10 hover:border-volt/50 transition-all"
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center">

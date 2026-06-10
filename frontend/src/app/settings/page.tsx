@@ -37,11 +37,11 @@ export default function SettingsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-2xl">
-        <h1 className="text-2xl font-bold text-white mb-6">設定</h1>
+        <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-6">設定</h1>
 
         {/* 法的情報 */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 mb-6 overflow-hidden">

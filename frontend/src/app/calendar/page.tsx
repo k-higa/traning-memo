@@ -108,11 +108,11 @@ export default function CalendarPage() {
     year === today.getFullYear()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
-        <h1 className="text-2xl font-bold text-white mb-6">カレンダー</h1>
+        <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-6">カレンダー</h1>
 
         {/* 月選択 */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10 mb-6">
@@ -129,7 +129,7 @@ export default function CalendarPage() {
               </h2>
               <button
                 onClick={goToToday}
-                className="px-3 py-1 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="px-3 py-1 text-sm bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
               >
                 今日
               </button>
@@ -184,9 +184,9 @@ export default function CalendarPage() {
                         onClick={() => setSelectedDate(dateStr)}
                         className={`aspect-square rounded-lg flex flex-col items-center justify-center relative transition-all ${
                           isSelected
-                            ? 'bg-purple-600 text-white'
+                            ? 'bg-volt text-ink'
                             : isToday(day)
-                            ? 'bg-purple-500/30 text-white ring-2 ring-purple-500'
+                            ? 'bg-volt/20 text-white ring-2 ring-volt'
                             : workout
                             ? 'bg-green-500/20 text-white hover:bg-green-500/30'
                             : 'hover:bg-white/10 text-white'
@@ -235,7 +235,7 @@ export default function CalendarPage() {
                           className="block p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors mb-4"
                         >
                           <div className="flex items-center gap-3 mb-3">
-                            <Dumbbell className="h-5 w-5 text-purple-400" />
+                            <Dumbbell className="h-5 w-5 text-volt" />
                             <span className="text-white font-medium">
                               {selectedWorkout.sets.length}セット
                             </span>
@@ -248,7 +248,7 @@ export default function CalendarPage() {
                                   group && (
                                     <span
                                       key={group}
-                                      className="px-2 py-0.5 bg-purple-500/20 text-purple-300 text-xs rounded"
+                                      className="px-2 py-0.5 bg-volt/10 text-volt text-xs rounded"
                                     >
                                       {muscleGroupLabels[group] || group}
                                     </span>
@@ -258,7 +258,7 @@ export default function CalendarPage() {
                         </Link>
                         <Link
                           href={`/workout/${selectedWorkout.id}`}
-                          className="block w-full py-2 text-center text-purple-400 hover:text-purple-300 text-sm"
+                          className="block w-full py-2 text-center text-volt hover:text-volt text-sm"
                         >
                           詳細を見る →
                         </Link>
@@ -268,7 +268,7 @@ export default function CalendarPage() {
                         <p className="text-gray-400 mb-4">この日の記録はありません</p>
                         <Link
                           href={`/workout/new?date=${selectedDate}`}
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
                         >
                           <Plus className="h-4 w-4" />
                           記録を追加
@@ -293,7 +293,7 @@ export default function CalendarPage() {
             <span className="text-gray-400">トレーニング記録あり</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 bg-purple-500/40 rounded ring-2 ring-purple-500" />
+            <div className="w-3 h-3 bg-volt/20 rounded ring-2 ring-volt" />
             <span className="text-gray-400">今日</span>
           </div>
         </div>

@@ -60,7 +60,7 @@ export default function MenusPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -70,16 +70,16 @@ export default function MenusPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-white">メニュー管理</h1>
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white">メニュー管理</h1>
           <div className="flex items-center gap-2">
             <Link
               href="/menus/ai-generate"
-              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all"
+              className="flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-all"
             >
               <Sparkles className="h-4 w-4" />
               AIで作成
@@ -103,7 +103,7 @@ export default function MenusPage() {
             </p>
             <Link
               href="/menus/new"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
             >
               <Plus className="h-5 w-5" />
               最初のメニューを作成
@@ -131,7 +131,7 @@ export default function MenusPage() {
                         {muscleGroups.map((group) => (
                           <span
                             key={group}
-                            className="px-2 py-0.5 bg-purple-500/20 text-purple-300 text-xs rounded"
+                            className="px-2 py-0.5 bg-volt/10 text-volt text-xs rounded"
                           >
                             {muscleGroupLabels[group as string] || group}
                           </span>
@@ -144,7 +144,7 @@ export default function MenusPage() {
                     <div className="flex items-center gap-2">
                       <Link
                         href={`/menus/${menu.id}/edit`}
-                        className="p-2 text-gray-400 hover:text-purple-400 transition-colors"
+                        className="p-2 text-gray-400 hover:text-volt transition-colors"
                       >
                         <Edit className="h-5 w-5" />
                       </Link>
@@ -185,7 +185,7 @@ export default function MenusPage() {
                   {/* メニューから記録開始ボタン */}
                   <Link
                     href={`/workout/new?menu=${menu.id}`}
-                    className="flex items-center justify-center gap-2 w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all"
+                    className="flex items-center justify-center gap-2 w-full py-3 bg-volt text-ink font-medium rounded-xl hover:bg-volt-dim transition-all"
                   >
                     このメニューで記録開始
                     <ChevronRight className="h-4 w-4" />

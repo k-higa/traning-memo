@@ -144,7 +144,7 @@ export default function NewMenuPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -154,7 +154,7 @@ export default function NewMenuPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-2xl">
@@ -166,7 +166,7 @@ export default function NewMenuPage() {
           メニュー一覧に戻る
         </Link>
 
-        <h1 className="text-2xl font-bold text-white mb-6">新規メニュー作成</h1>
+        <h1 className="text-3xl font-display uppercase tracking-wide text-white mb-6">新規メニュー作成</h1>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* メニュー名 */}
@@ -179,7 +179,7 @@ export default function NewMenuPage() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="例: 胸の日、脚トレ"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt"
             />
           </div>
 
@@ -193,7 +193,7 @@ export default function NewMenuPage() {
               onChange={(e) => setDescription(e.target.value)}
               rows={2}
               placeholder="メニューの説明や目的を記入"
-              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+              className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt resize-none"
             />
           </div>
 
@@ -206,10 +206,10 @@ export default function NewMenuPage() {
               <select
                 value={selectedMuscleGroup}
                 onChange={(e) => setSelectedMuscleGroup(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
               >
                 {muscleGroups.map((group) => (
-                  <option key={group.value} value={group.value} className="bg-slate-800">
+                  <option key={group.value} value={group.value} className="bg-ink-2">
                     {group.label}
                   </option>
                 ))}
@@ -227,7 +227,7 @@ export default function NewMenuPage() {
               <button
                 type="button"
                 onClick={addItem}
-                className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
               >
                 <Plus className="h-4 w-4" />
                 種目を追加
@@ -246,7 +246,7 @@ export default function NewMenuPage() {
                     className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                   >
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-sm font-medium text-purple-400">
+                      <span className="text-sm font-medium text-volt">
                         種目 {index + 1}
                       </span>
                       <button
@@ -266,16 +266,16 @@ export default function NewMenuPage() {
                           onChange={(e) =>
                             updateItem(item.id, 'exerciseId', parseInt(e.target.value, 10))
                           }
-                          className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                          className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
                         >
-                          <option value={0} className="bg-slate-800">
+                          <option value={0} className="bg-ink-2">
                             選択してください
                           </option>
                           {getExerciseOptions(item.exerciseId).map((exercise) => (
                             <option
                               key={exercise.id}
                               value={exercise.id}
-                              className="bg-slate-800"
+                              className="bg-ink-2"
                             >
                               {exercise.name}
                             </option>
@@ -293,7 +293,7 @@ export default function NewMenuPage() {
                             value={item.targetWeight}
                             onChange={(e) => updateItem(item.id, 'targetWeight', e.target.value)}
                             placeholder="任意"
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-volt"
                           />
                         </div>
                         <div>
@@ -303,7 +303,7 @@ export default function NewMenuPage() {
                             min="1"
                             value={item.targetReps}
                             onChange={(e) => updateItem(item.id, 'targetReps', e.target.value)}
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                           />
                         </div>
                         <div>
@@ -313,7 +313,7 @@ export default function NewMenuPage() {
                             min="1"
                             value={item.targetSets}
                             onChange={(e) => updateItem(item.id, 'targetSets', e.target.value)}
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                           />
                         </div>
                       </div>
@@ -335,7 +335,7 @@ export default function NewMenuPage() {
           <button
             type="submit"
             disabled={saving || items.length === 0}
-            className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            className="w-full flex items-center justify-center gap-2 py-4 px-6 bg-volt text-ink font-semibold rounded-xl hover:bg-volt-dim disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             <Save className="h-5 w-5" />
             {saving ? '保存中...' : 'メニューを保存'}

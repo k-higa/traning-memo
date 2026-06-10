@@ -205,7 +205,7 @@ export default function WorkoutDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -216,7 +216,7 @@ export default function WorkoutDetailPage() {
 
   if (!workout) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">トレーニングが見つかりません</div>
@@ -239,7 +239,7 @@ export default function WorkoutDetailPage() {
   }, {} as Record<string, { muscleGroup: string; sets: typeof workout.sets }>)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-2xl">
@@ -256,11 +256,11 @@ export default function WorkoutDetailPage() {
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10 mb-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                <Calendar className="h-6 w-6 text-purple-400" />
+              <div className="w-12 h-12 bg-volt/10 rounded-xl flex items-center justify-center">
+                <Calendar className="h-6 w-6 text-volt" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-white">{formatDate(workout.date)}</h1>
+                <h1 className="text-2xl font-display uppercase tracking-wide text-white">{formatDate(workout.date)}</h1>
                 <p className="text-gray-400 text-sm">{workout.sets.length}セット記録</p>
               </div>
             </div>
@@ -269,7 +269,7 @@ export default function WorkoutDetailPage() {
                 <>
                   <button
                     onClick={startEditing}
-                    className="p-2 text-gray-400 hover:text-purple-400 transition-colors"
+                    className="p-2 text-gray-400 hover:text-volt transition-colors"
                   >
                     <Edit className="h-5 w-5" />
                   </button>
@@ -292,7 +292,7 @@ export default function WorkoutDetailPage() {
                 group && (
                   <span
                     key={group}
-                    className="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full"
+                    className="px-3 py-1 bg-volt/10 text-volt text-sm rounded-full"
                   >
                     {muscleGroupLabels[group] || group}
                   </span>
@@ -313,10 +313,10 @@ export default function WorkoutDetailPage() {
                 <select
                   value={selectedMuscleGroup}
                   onChange={(e) => setSelectedMuscleGroup(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
                 >
                   {muscleGroups.map((group) => (
-                    <option key={group.value} value={group.value} className="bg-slate-800">
+                    <option key={group.value} value={group.value} className="bg-ink-2">
                       {group.label}
                     </option>
                   ))}
@@ -332,7 +332,7 @@ export default function WorkoutDetailPage() {
                 <button
                   type="button"
                   onClick={addSet}
-                  className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
                 >
                   <Plus className="h-4 w-4" />
                   セットを追加
@@ -352,7 +352,7 @@ export default function WorkoutDetailPage() {
                       className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/10"
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium text-purple-400">
+                        <span className="text-sm font-medium text-volt">
                           セット {index + 1}
                         </span>
                         <button
@@ -372,9 +372,9 @@ export default function WorkoutDetailPage() {
                             onChange={(e) =>
                               updateSet(set.id, 'exerciseId', parseInt(e.target.value, 10))
                             }
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm appearance-none focus:outline-none focus:ring-2 focus:ring-volt"
                           >
-                            <option value={0} className="bg-slate-800">
+                            <option value={0} className="bg-ink-2">
                               選択してください
                             </option>
                             {/* 選択中の種目がフィルタリング後のリストにない場合、それを追加 */}
@@ -384,7 +384,7 @@ export default function WorkoutDetailPage() {
                                 <option
                                   key={selectedExercise.id}
                                   value={selectedExercise.id}
-                                  className="bg-slate-800"
+                                  className="bg-ink-2"
                                 >
                                   {selectedExercise.name}（{muscleGroupLabels[selectedExercise.muscle_group] || 'その他'}）
                                 </option>
@@ -394,7 +394,7 @@ export default function WorkoutDetailPage() {
                               <option
                                 key={exercise.id}
                                 value={exercise.id}
-                                className="bg-slate-800"
+                                className="bg-ink-2"
                               >
                                 {exercise.name}
                               </option>
@@ -410,7 +410,7 @@ export default function WorkoutDetailPage() {
                             value={set.weight}
                             onChange={(e) => updateSet(set.id, 'weight', e.target.value)}
                             placeholder="0"
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                           />
                         </div>
                         <div>
@@ -421,7 +421,7 @@ export default function WorkoutDetailPage() {
                             value={set.reps}
                             onChange={(e) => updateSet(set.id, 'reps', e.target.value)}
                             placeholder="0"
-                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-purple-500"
+                            className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-volt"
                           />
                         </div>
                       </div>
@@ -441,7 +441,7 @@ export default function WorkoutDetailPage() {
                 onChange={(e) => setEditMemo(e.target.value)}
                 rows={3}
                 placeholder="トレーニングについてメモを残せます"
-                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500 resize-none"
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt resize-none"
               />
             </div>
 
@@ -466,7 +466,7 @@ export default function WorkoutDetailPage() {
                 type="button"
                 onClick={handleSave}
                 disabled={saving || editSets.length === 0}
-                className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                className="flex-1 flex items-center justify-center gap-2 py-3 px-4 bg-volt text-ink font-semibold rounded-xl hover:bg-volt-dim disabled:opacity-50 disabled:cursor-not-allowed transition-all"
               >
                 <Save className="h-5 w-5" />
                 {saving ? '保存中...' : '保存'}
@@ -532,7 +532,7 @@ export default function WorkoutDetailPage() {
             {/* 編集ボタン（下部） */}
             <button
               onClick={startEditing}
-              className="mt-6 w-full flex items-center justify-center gap-2 py-4 px-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all"
+              className="mt-6 w-full flex items-center justify-center gap-2 py-4 px-6 bg-volt text-ink font-semibold rounded-xl hover:bg-volt-dim transition-all"
             >
               <Edit className="h-5 w-5" />
               このトレーニングを編集

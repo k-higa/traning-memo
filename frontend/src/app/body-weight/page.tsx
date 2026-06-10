@@ -122,7 +122,7 @@ export default function BodyWeightPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      <div className="min-h-screen bg-ink">
         <Header />
         <div className="flex items-center justify-center h-[calc(100vh-64px)]">
           <div className="text-white">読み込み中...</div>
@@ -132,15 +132,15 @@ export default function BodyWeightPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-white">体重記録</h1>
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white">体重記録</h1>
           <button
             onClick={() => setShowForm(!showForm)}
-            className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 bg-volt text-ink rounded-lg hover:bg-volt-dim transition-colors"
           >
             <Plus className="h-4 w-4" />
             記録を追加
@@ -159,7 +159,7 @@ export default function BodyWeightPage() {
                     type="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-volt"
                   />
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export default function BodyWeightPage() {
                     value={weight}
                     onChange={(e) => setWeight(e.target.value)}
                     placeholder="60.0"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt"
                   />
                 </div>
                 <div>
@@ -188,7 +188,7 @@ export default function BodyWeightPage() {
                     value={bodyFat}
                     onChange={(e) => setBodyFat(e.target.value)}
                     placeholder="15.0"
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-volt"
                   />
                 </div>
               </div>
@@ -210,7 +210,7 @@ export default function BodyWeightPage() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex-1 py-3 px-4 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 transition-colors"
+                  className="flex-1 py-3 px-4 bg-volt text-ink rounded-lg hover:bg-volt-dim disabled:opacity-50 transition-colors"
                 >
                   {saving ? '保存中...' : '保存'}
                 </button>
@@ -223,8 +223,8 @@ export default function BodyWeightPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/10">
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
-                <Scale className="h-5 w-5 text-purple-400" />
+              <div className="w-10 h-10 bg-volt/10 rounded-lg flex items-center justify-center">
+                <Scale className="h-5 w-5 text-volt" />
               </div>
               <span className="text-sm text-gray-400">現在の体重</span>
             </div>
@@ -364,7 +364,7 @@ export default function BodyWeightPage() {
                       })}
                     </p>
                     <div className="flex items-center gap-4 mt-1">
-                      <span className="text-purple-400">{record.weight} kg</span>
+                      <span className="text-volt">{record.weight} kg</span>
                       {record.body_fat_percentage && (
                         <span className="text-gray-400">
                           体脂肪率: {record.body_fat_percentage}%

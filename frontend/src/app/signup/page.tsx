@@ -48,19 +48,23 @@ export default function SignupPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center px-4 py-8">
+    <div className="min-h-screen bg-ink flex items-center justify-center px-4 py-8">
       <div className="w-full max-w-md">
         {/* ロゴ */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2">
-            <Dumbbell className="h-10 w-10 text-purple-400" />
-            <span className="text-2xl font-bold text-white">Training Memo</span>
+          <Link href="/" className="inline-flex items-center gap-2.5">
+            <span className="flex h-10 w-10 items-center justify-center bg-volt text-ink">
+              <Dumbbell className="h-6 w-6" />
+            </span>
+            <span className="font-display text-2xl uppercase tracking-wide text-white">
+              Training<span className="text-volt">Memo</span>
+            </span>
           </Link>
         </div>
 
         {/* 登録カード */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20">
-          <h1 className="text-2xl font-bold text-white text-center mb-6">新規登録</h1>
+        <div className="bg-ink-2 rounded-2xl p-8 border border-white/10">
+          <h1 className="font-display text-3xl uppercase tracking-wide text-white text-center mb-6">新規登録</h1>
 
           {error && (
             <div className="mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg flex items-center gap-2 text-red-200">
@@ -82,7 +86,7 @@ export default function SignupPage() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-volt focus:border-transparent"
                   placeholder="トレーニー太郎"
                 />
               </div>
@@ -100,7 +104,7 @@ export default function SignupPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-volt focus:border-transparent"
                   placeholder="your@email.com"
                 />
               </div>
@@ -119,7 +123,7 @@ export default function SignupPage() {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   minLength={8}
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-volt focus:border-transparent"
                   placeholder="8文字以上"
                 />
               </div>
@@ -137,7 +141,7 @@ export default function SignupPage() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-volt focus:border-transparent"
                   placeholder="パスワードを再入力"
                 />
               </div>
@@ -145,11 +149,11 @@ export default function SignupPage() {
 
             <p className="text-xs text-gray-400 text-center">
               登録することで
-              <Link href="/terms" className="text-purple-400 hover:text-purple-300 underline mx-1">
+              <Link href="/terms" className="text-volt hover:text-volt underline mx-1">
                 利用規約
               </Link>
               および
-              <Link href="/privacy" className="text-purple-400 hover:text-purple-300 underline mx-1">
+              <Link href="/privacy" className="text-volt hover:text-volt underline mx-1">
                 プライバシーポリシー
               </Link>
               に同意したことになります。
@@ -158,7 +162,7 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full py-3 px-4 bg-volt text-ink font-display uppercase tracking-wide rounded-lg hover:bg-volt-dim focus:outline-none focus:ring-2 focus:ring-volt focus:ring-offset-2 focus:ring-offset-ink disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               {loading ? '登録中...' : 'アカウント作成'}
             </button>
@@ -167,7 +171,7 @@ export default function SignupPage() {
           <div className="mt-6 text-center">
             <p className="text-gray-400">
               すでにアカウントをお持ちの方は{' '}
-              <Link href="/login" className="text-purple-400 hover:text-purple-300 font-medium">
+              <Link href="/login" className="text-volt hover:text-volt font-medium">
                 ログイン
               </Link>
             </p>

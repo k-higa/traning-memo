@@ -1,16 +1,23 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Anton, Sora, Space_Mono } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { ServiceWorkerRegistration } from '@/components/ServiceWorkerRegistration'
 
-const inter = Inter({
+const sora = Sora({
   variable: '--font-sans',
   subsets: ['latin'],
 })
 
-const jetbrainsMono = JetBrains_Mono({
+const anton = Anton({
+  variable: '--font-display',
+  weight: '400',
+  subsets: ['latin'],
+})
+
+const spaceMono = Space_Mono({
   variable: '--font-mono',
+  weight: ['400', '700'],
   subsets: ['latin'],
 })
 
@@ -46,7 +53,7 @@ export default function RootLayout({
       <head>
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
       </head>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}>
+      <body className={`${sora.variable} ${anton.variable} ${spaceMono.variable} antialiased`}>
         <ServiceWorkerRegistration />
         <Providers>{children}</Providers>
       </body>

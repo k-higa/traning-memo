@@ -25,17 +25,21 @@ export function Header() {
   ]
 
   return (
-    <header className="bg-slate-900/95 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
+    <header className="bg-ink/95 backdrop-blur-sm border-b border-white/10 sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* ロゴ */}
-          <Link href="/dashboard" className="flex items-center gap-2">
-            <Dumbbell className="h-7 w-7 text-purple-400" />
-            <span className="text-lg font-bold text-white hidden sm:block">Training Memo</span>
+          <Link href="/dashboard" className="flex items-center gap-2.5">
+            <span className="flex h-8 w-8 items-center justify-center bg-volt text-ink">
+              <Dumbbell className="h-5 w-5" />
+            </span>
+            <span className="font-display text-lg uppercase tracking-wide text-white hidden sm:block">
+              Training<span className="text-volt">Memo</span>
+            </span>
           </Link>
 
           {/* ナビゲーション */}
-          <nav className="flex items-center gap-1">
+          <nav className="flex items-center gap-0.5">
             {navItems.map((item) => {
               const Icon = item.icon
               const isActive = pathname === item.href
@@ -43,10 +47,10 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-2 px-3 py-2 text-xs font-medium uppercase tracking-wider transition-colors ${
                     isActive
-                      ? 'bg-purple-600 text-white'
-                      : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                      ? 'text-volt'
+                      : 'text-concrete hover:text-white'
                   }`}
                 >
                   <Icon className="h-5 w-5" />
@@ -57,13 +61,13 @@ export function Header() {
           </nav>
 
           {/* ユーザーメニュー */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-0.5">
             <Link
               href="/settings"
-              className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+              className={`flex items-center gap-2 px-3 py-2 text-xs font-medium uppercase tracking-wider transition-colors ${
                 pathname === '/settings'
-                  ? 'bg-purple-600 text-white'
-                  : 'text-gray-300 hover:bg-white/10 hover:text-white'
+                  ? 'text-volt'
+                  : 'text-concrete hover:text-white'
               }`}
             >
               <Settings className="h-5 w-5" />
@@ -71,7 +75,7 @@ export function Header() {
             </Link>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
+              className="flex items-center gap-2 px-3 py-2 text-xs font-medium uppercase tracking-wider text-concrete hover:text-volt transition-colors"
             >
               <LogOut className="h-5 w-5" />
               <span className="hidden sm:block">ログアウト</span>

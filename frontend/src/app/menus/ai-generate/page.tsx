@@ -125,7 +125,7 @@ export default function AIGenerateMenuPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <div className="min-h-screen bg-ink">
       <Header />
 
       <main className="container mx-auto px-4 py-8 max-w-2xl">
@@ -133,8 +133,8 @@ export default function AIGenerateMenuPage() {
           <Link href="/menus" className="text-gray-400 hover:text-white transition-colors">
             <ChevronLeft className="h-5 w-5" />
           </Link>
-          <h1 className="text-2xl font-bold text-white flex items-center gap-2">
-            <Sparkles className="h-6 w-6 text-pink-400" />
+          <h1 className="text-3xl font-display uppercase tracking-wide text-white flex items-center gap-2">
+            <Sparkles className="h-6 w-6 text-volt" />
             AIメニュープランニング
           </h1>
         </div>
@@ -160,7 +160,7 @@ export default function AIGenerateMenuPage() {
               <select
                 value={goal}
                 onChange={(e) => setGoal(e.target.value)}
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:border-purple-400 transition-colors"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:border-volt transition-colors"
               >
                 <option value="筋力アップ">筋力アップ</option>
                 <option value="筋肥大">筋肥大（バルクアップ）</option>
@@ -182,7 +182,7 @@ export default function AIGenerateMenuPage() {
                     onClick={() => setFitnessLevel(level)}
                     className={`py-3 rounded-xl text-sm font-medium transition-colors ${
                       fitnessLevel === level
-                        ? 'bg-purple-600 text-white'
+                        ? 'bg-volt text-ink'
                         : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/20'
                     }`}
                   >
@@ -205,7 +205,7 @@ export default function AIGenerateMenuPage() {
                     onClick={() => setDaysPerWeek(days)}
                     className={`py-3 rounded-xl text-sm font-medium transition-colors ${
                       daysPerWeek === days
-                        ? 'bg-purple-600 text-white'
+                        ? 'bg-volt text-ink'
                         : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/20'
                     }`}
                   >
@@ -228,7 +228,7 @@ export default function AIGenerateMenuPage() {
                     onClick={() => setDurationMinutes(mins)}
                     className={`py-3 rounded-xl text-sm font-medium transition-colors ${
                       durationMinutes === mins
-                        ? 'bg-purple-600 text-white'
+                        ? 'bg-volt text-ink'
                         : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/20'
                     }`}
                   >
@@ -251,7 +251,7 @@ export default function AIGenerateMenuPage() {
                     onClick={() => toggleMuscleGroup(opt.value)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       targetMuscleGroups.includes(opt.value)
-                        ? 'bg-pink-600 text-white'
+                        ? 'bg-volt text-white'
                         : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/20'
                     }`}
                   >
@@ -271,13 +271,13 @@ export default function AIGenerateMenuPage() {
                 onChange={(e) => setNotes(e.target.value)}
                 placeholder="例：自宅でできる種目のみ、腰が弱いのでデッドリフトは除外してほしい など"
                 rows={3}
-                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-purple-400 transition-colors resize-none"
+                className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-volt transition-colors resize-none"
               />
             </div>
 
             <button
               onClick={handleGenerate}
-              className="w-full py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all flex items-center justify-center gap-2"
+              className="w-full py-4 bg-volt text-ink font-semibold rounded-xl hover:bg-volt-dim transition-all flex items-center justify-center gap-2"
             >
               <Sparkles className="h-5 w-5" />
               AIにプランニングしてもらう
@@ -289,7 +289,7 @@ export default function AIGenerateMenuPage() {
         {phase === 'loading' && (
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/10 text-center">
             <div className="animate-pulse">
-              <Sparkles className="h-16 w-16 text-pink-400 mx-auto mb-4" />
+              <Sparkles className="h-16 w-16 text-volt mx-auto mb-4" />
             </div>
             <h2 className="text-xl font-semibold text-white mb-2">AIがメニューを考えています...</h2>
             <p className="text-gray-400 text-sm">最適なトレーニングメニューを作成しています。しばらくお待ちください。</p>
@@ -301,7 +301,7 @@ export default function AIGenerateMenuPage() {
           <div className="space-y-4">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
               <div className="flex items-start gap-3 mb-4">
-                <Sparkles className="h-5 w-5 text-pink-400 mt-0.5 shrink-0" />
+                <Sparkles className="h-5 w-5 text-volt mt-0.5 shrink-0" />
                 <div>
                   <h2 className="text-xl font-bold text-white mb-1">{generatedMenu.name}</h2>
                   {generatedMenu.description && (
@@ -318,7 +318,7 @@ export default function AIGenerateMenuPage() {
                     className="flex items-start justify-between p-4 bg-white/5 rounded-xl"
                   >
                     <div className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-6 h-6 bg-purple-600/50 text-purple-200 rounded-full flex items-center justify-center text-xs font-medium">
+                      <span className="flex-shrink-0 w-6 h-6 bg-volt/20 text-volt rounded-full flex items-center justify-center text-xs font-medium">
                         {item.order_number}
                       </span>
                       <div>
@@ -327,7 +327,7 @@ export default function AIGenerateMenuPage() {
                             {item.exercise?.name || '不明な種目'}
                           </span>
                           {item.exercise?.muscle_group && (
-                            <span className="px-2 py-0.5 bg-purple-500/20 text-purple-300 text-xs rounded">
+                            <span className="px-2 py-0.5 bg-volt/10 text-volt text-xs rounded">
                               {muscleGroupLabels[item.exercise.muscle_group] || item.exercise.muscle_group}
                             </span>
                           )}
@@ -370,7 +370,7 @@ export default function AIGenerateMenuPage() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="flex-1 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-xl hover:from-purple-700 hover:to-pink-700 transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 py-3 bg-volt text-ink font-semibold rounded-xl hover:bg-volt-dim transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <Save className="h-4 w-4" />
                 {saving ? '保存中...' : 'このメニューを保存'}
